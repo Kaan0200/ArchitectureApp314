@@ -2,18 +2,21 @@ package com.example.kaan.architecture314app;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
-
+import android.view.*;
+import android.widget.TextView;
 
 public class MainActivity extends ActionBarActivity {
 
-    private String outputTextLabel = "";
+    // items on page
+    TextView outputLabel;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        // get the objects
+        outputLabel = (TextView) findViewById(R.id.outputTextLabel);
     }
 
 
@@ -42,7 +45,8 @@ public class MainActivity extends ActionBarActivity {
     // Kaan created method that does the calculation using the values from all the fields
     // on screen.  It does the calculation then updates the output text, it does not return the
     // value, it is called when the button is pressed.
-    public void calculate(){
-        outputTextLabel = "150Test";
+    public void calculate(View view){
+
+        outputLabel.setText("150Test");
     }
 }
