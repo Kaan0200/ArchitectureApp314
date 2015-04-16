@@ -16,7 +16,6 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         // get the objects
-        outputLabel = (TextView) findViewById(R.id.outputTextLabel);
     }
 
 
@@ -40,13 +39,5 @@ public class MainActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
-    }
-
-    // Kaan created method that does the calculation using the values from all the fields
-    // on screen.  It does the calculation then updates the output text, it does not return the
-    // value, it is called when the button is pressed.
-    public void calculate(View view){
-
-        outputLabel.setText("150Test");
     }
 }
