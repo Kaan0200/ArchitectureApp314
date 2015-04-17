@@ -7,19 +7,18 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-
-import com.example.kaan.architecture314app.dummy.DummyContent;
+import com.example.kaan.architecture314app.dummy.GlossaryContent;
 
 /**
- * A list fragment representing a list of Defenitions. This fragment
+ * A list fragment representing a list of GlossaryDefinitions. This fragment
  * also supports tablet devices by allowing list items to be given an
  * 'activated' state upon selection. This helps indicate which item is
- * currently being viewed in a {@link DefinitionDetailFragment}.
+ * currently being viewed in a {@link GlossaryDefinitionDetailFragment}.
  * <p/>
  * Activities containing this fragment MUST implement the {@link Callbacks}
  * interface.
  */
-public class DefinitionListFragment extends ListFragment {
+public class GlossaryDefinitionListFragment extends ListFragment {
 
     /**
      * The serialization (saved instance state) Bundle key representing the
@@ -64,7 +63,7 @@ public class DefinitionListFragment extends ListFragment {
      * Mandatory empty constructor for the fragment manager to instantiate the
      * fragment (e.g. upon screen orientation changes).
      */
-    public DefinitionListFragment() {
+    public GlossaryDefinitionListFragment() {
     }
 
     @Override
@@ -72,11 +71,11 @@ public class DefinitionListFragment extends ListFragment {
         super.onCreate(savedInstanceState);
 
         // TODO: replace with a real list adapter.
-        setListAdapter(new ArrayAdapter<DummyContent.DummyItem>(
+        setListAdapter(new ArrayAdapter<GlossaryContent.GlossaryItem>(
                 getActivity(),
                 android.R.layout.simple_list_item_activated_1,
                 android.R.id.text1,
-                DummyContent.ITEMS));
+                GlossaryContent.ITEMS));
     }
 
     @Override
@@ -116,7 +115,7 @@ public class DefinitionListFragment extends ListFragment {
 
         // Notify the active callbacks interface (the activity, if the
         // fragment is attached to one) that an item has been selected.
-        mCallbacks.onItemSelected(DummyContent.ITEMS.get(position).id);
+        mCallbacks.onItemSelected(GlossaryContent.ITEMS.get(position).word);
     }
 
     @Override

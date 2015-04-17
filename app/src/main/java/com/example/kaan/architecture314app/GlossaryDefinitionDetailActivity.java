@@ -8,20 +8,20 @@ import android.view.MenuItem;
 
 
 /**
- * An activity representing a single Definition detail screen. This
+ * An activity representing a single GlossaryDefinition detail screen. This
  * activity is only used on handset devices. On tablet-size devices,
  * item details are presented side-by-side with a list of items
- * in a {@link DefinitionListActivity}.
+ * in a {@link GlossaryDefinitionListActivity}.
  * <p/>
  * This activity is mostly just a 'shell' activity containing nothing
- * more than a {@link DefinitionDetailFragment}.
+ * more than a {@link GlossaryDefinitionDetailFragment}.
  */
-public class DefinitionDetailActivity extends ActionBarActivity {
+public class GlossaryDefinitionDetailActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_definition_detail);
+        setContentView(R.layout.activity_glossarydefinition_detail);
 
         // Show the Up button in the action bar.
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -39,12 +39,12 @@ public class DefinitionDetailActivity extends ActionBarActivity {
             // Create the detail fragment and add it to the activity
             // using a fragment transaction.
             Bundle arguments = new Bundle();
-            arguments.putString(DefinitionDetailFragment.ARG_ITEM_ID,
-                    getIntent().getStringExtra(DefinitionDetailFragment.ARG_ITEM_ID));
-            DefinitionDetailFragment fragment = new DefinitionDetailFragment();
+            arguments.putString(GlossaryDefinitionDetailFragment.ARG_ITEM_ID,
+                    getIntent().getStringExtra(GlossaryDefinitionDetailFragment.ARG_ITEM_ID));
+            GlossaryDefinitionDetailFragment fragment = new GlossaryDefinitionDetailFragment();
             fragment.setArguments(arguments);
             getSupportFragmentManager().beginTransaction()
-                    .add(R.id.definition_detail_container, fragment)
+                    .add(R.id.glossarydefinition_detail_container, fragment)
                     .commit();
         }
     }
@@ -60,7 +60,7 @@ public class DefinitionDetailActivity extends ActionBarActivity {
             //
             // http://developer.android.com/design/patterns/navigation.html#up-vs-back
             //
-            NavUtils.navigateUpTo(this, new Intent(this, DefinitionListActivity.class));
+            NavUtils.navigateUpTo(this, new Intent(this, GlossaryDefinitionListActivity.class));
             return true;
         }
         return super.onOptionsItemSelected(item);

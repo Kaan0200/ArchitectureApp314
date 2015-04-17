@@ -7,16 +7,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-
-import com.example.kaan.architecture314app.dummy.DummyContent;
+import com.example.kaan.architecture314app.dummy.GlossaryContent;
 
 /**
- * A fragment representing a single Definition detail screen.
- * This fragment is either contained in a {@link DefinitionListActivity}
- * in two-pane mode (on tablets) or a {@link DefinitionDetailActivity}
+ * A fragment representing a single GlossaryDefinition detail screen.
+ * This fragment is either contained in a {@link GlossaryDefinitionListActivity}
+ * in two-pane mode (on tablets) or a {@link GlossaryDefinitionDetailActivity}
  * on handsets.
  */
-public class DefinitionDetailFragment extends Fragment {
+public class GlossaryDefinitionDetailFragment extends Fragment {
     /**
      * The fragment argument representing the item ID that this fragment
      * represents.
@@ -26,13 +25,13 @@ public class DefinitionDetailFragment extends Fragment {
     /**
      * The dummy content this fragment is presenting.
      */
-    private DummyContent.DummyItem mItem;
+    private GlossaryContent.GlossaryItem mItem;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
      * fragment (e.g. upon screen orientation changes).
      */
-    public DefinitionDetailFragment() {
+    public GlossaryDefinitionDetailFragment() {
     }
 
     @Override
@@ -43,18 +42,18 @@ public class DefinitionDetailFragment extends Fragment {
             // Load the dummy content specified by the fragment
             // arguments. In a real-world scenario, use a Loader
             // to load content from a content provider.
-            mItem = DummyContent.ITEM_MAP.get(getArguments().getString(ARG_ITEM_ID));
+            mItem = GlossaryContent.ITEM_MAP.get(getArguments().getString(ARG_ITEM_ID));
         }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_definition_detail, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_glossarydefinition_detail, container, false);
 
         // Show the dummy content as text in a TextView.
         if (mItem != null) {
-            ((TextView) rootView.findViewById(R.id.definition_detail)).setText(mItem.content);
+            ((TextView) rootView.findViewById(R.id.glossarydefinition_detail)).setText(mItem.definition);
         }
 
         return rootView;

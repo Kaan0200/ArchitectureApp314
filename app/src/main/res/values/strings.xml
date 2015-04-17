@@ -5,4 +5,6 @@
     <string name="action_settings">Settings</string>
     <string name="title_definition_list">Defenitions</string>
     <string name="title_definition_detail">Definition Detail</string>
+    <string name="title_glossarydefinition_list">GlossaryDefinitions</string>
+    <string name="title_glossarydefinition_detail">GlossaryDefinition Detail</string>
 </resources>
