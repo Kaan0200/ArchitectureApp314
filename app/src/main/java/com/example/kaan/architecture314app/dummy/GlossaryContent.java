@@ -18,7 +18,7 @@ public class GlossaryContent {
     public static Map<String, GlossaryItem> ITEM_MAP = new HashMap<String, GlossaryItem>();
 
     static {
-        // Add 3 sample items.
+        // Add Items to glossary here
         addItem(new GlossaryItem("CPU", "Central Processing Unit, this is the main processor"));
         addItem(new GlossaryItem("CPI",
                 "Clocks Per Instruction, the number of clocks needed to execute an instruction"));
@@ -41,6 +41,6 @@ public class GlossaryContent {
             this.definition = definition;
         }
 
-        public String toString() { return word + " : "+ definition; }
+        public String toString() { return word; }
     }
 }

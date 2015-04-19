@@ -4,13 +4,8 @@ import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.*;
-import android.widget.TextView;
 
 public class MainActivity extends ActionBarActivity {
-
-    // items on page
-    TextView outputLabel;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,8 +37,30 @@ public class MainActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    /**
+     * This opens up the Glossary Activity when the button is pressed
+     * @param v
+     */
     public void openGlossaryActivity(View v){
         Intent intent = new Intent(MainActivity.this, GlossaryDefinitionListActivity.class);
+        startActivity(intent);
+    }
+
+    /**
+     * This opens up the Processor Search when the button is pressed.
+     * @param v
+     */
+    public void openProcessorSearchActivity(View v){
+        Intent intent = new Intent(MainActivity.this, ProcessorSearchActivity.class);
+        startActivity(intent);
+    }
+
+    /**
+     * This opens up the processor definition List
+     * @param v
+     */
+    public void openProcessorDictionaryActivity(View v){
+        Intent intent = new Intent(MainActivity.this, ProcessorDefinitionListActivity.class);
         startActivity(intent);
     }
 }

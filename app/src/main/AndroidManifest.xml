@@ -32,6 +32,30 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.kaan.architecture314app.GlossaryDefinitionListActivity" />
         </activity>
+        <activity
+            android:name=".ProcessorSearchActivity"
+            android:label="@string/title_activity_processor_search"
+            android:parentActivityName=".MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.kaan.architecture314app.MainActivity" />
+        </activity>
+        <activity
+            android:name=".ProcessorDefinitionListActivity"
+            android:label="@string/title_processordefinition_list"
+            android:parentActivityName=".MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.kaan.architecture314app.MainActivity" />
+        </activity>
+        <activity
+            android:name=".ProcessorDefinitionDetailActivity"
+            android:label="@string/title_processordefinition_detail"
+            android:parentActivityName=".ProcessorDefinitionListActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.kaan.architecture314app.ProcessorDefinitionListActivity" />
+        </activity>
     </application>
 
 </manifest>

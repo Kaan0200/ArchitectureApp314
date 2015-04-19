@@ -7,4 +7,7 @@
     <string name="title_definition_detail">Definition Detail</string>
     <string name="title_glossarydefinition_list">GlossaryDefinitions</string>
     <string name="title_glossarydefinition_detail">GlossaryDefinition Detail</string>
+    <string name="title_activity_processor_search">ProcessorSearchActivity</string>
+    <string name="title_processordefinition_list">ProcessorDefinitions</string>
+    <string name="title_processordefinition_detail">ProcessorDefinition Detail</string>
 </resources>
