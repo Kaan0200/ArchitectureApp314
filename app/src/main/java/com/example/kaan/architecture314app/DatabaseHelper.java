@@ -10,7 +10,9 @@ import android.provider.BaseColumns;
  * Created by Kaan on 4/22/2015.  This is the class that we will use to interact
  * with our database.  The resource I used to create this was at
  * http://blog.chrisblunt.com/android-getting-started-with-databases-and-contentproviders-part-1/
- * Not everything will be used since I basically copied and adapted the code from the site
+ * Not everything will be used since I basically copied and adapted the code from the site.
+ *
+ * This will set up the database and the two tables "processors" and "glossary"
  */
 public class DatabaseHelper extends SQLiteOpenHelper {
 

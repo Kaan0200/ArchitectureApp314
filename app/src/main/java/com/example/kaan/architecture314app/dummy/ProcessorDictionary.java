@@ -13,14 +13,9 @@ import java.util.Map;
  */
 public class ProcessorDictionary {
 
-    /**
-     * An array of sample (dummy) items.
-     */
+    // An array of sample processor items.
     public static List<ProcessorItem> ITEMS = new ArrayList<ProcessorItem>();
-
-    /**
-     * A map of sample (dummy) items, by ID.
-     */
+    // A map of sample processor items, by ID.
     public static Map<String, ProcessorItem> ITEM_MAP = new HashMap<String, ProcessorItem>();
 
     static {

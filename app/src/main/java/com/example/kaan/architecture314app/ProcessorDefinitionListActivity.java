@@ -57,8 +57,16 @@ public class ProcessorDefinitionListActivity extends FragmentActivity
         //----------------------------------------------------------------
         //-------SQL DATA ENTRIES-----------------------------------------
         //----------------------------------------------------------------
-        addProcessor("Pentium Pro", "Intel",null, 32, 60.0);
-        addProcessor("Itanium", "Intel", null, 64, 733.0);
+
+        addProcessor("4004", "Intel", "4bit BCC", 4, 0.0);
+        addProcessor("4040", "Intel", "4bit BCD", 4, 0.0);
+            //--
+        addProcessor("8008", "Intel", "8080", 8, 0.0);
+        addProcessor("8080", "Intel", "8080", 8, 0.0);
+            //--
+        addProcessor("8086", "Intel", "x86-16", 16, 0.0);
+        addProcessor("Pentium Pro", "Intel", "x86", 32, 60.0);
+        addProcessor("Itanium", "Intel", "Itanium", 64, 733.0);
         //----------------------------------------------------------------
 
         // TODO: If exposing deep links into your app, handle intents here.

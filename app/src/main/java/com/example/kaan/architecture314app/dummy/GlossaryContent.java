@@ -19,11 +19,14 @@ public class GlossaryContent {
 
     static {
         // Add Items to glossary here
-        addItem(new GlossaryItem("CPU", "Central Processing Unit, this is the main processor"));
+        addItem(new GlossaryItem("BCD",
+                "Binary-coded Decimal, is a type of binary encoding where each digit is represented by a fixed number of bits."));
+        addItem(new GlossaryItem("CPU",
+                "Central Processing Unit, this is the main processor."));
         addItem(new GlossaryItem("CPI",
-                "Clocks Per Instruction, the number of clocks needed to execute an instruction"));
+                "Clocks Per Instruction, the number of clocks needed to execute an instruction."));
         addItem(new GlossaryItem("Clock Speed",
-                "This is how many times the clock switches per second"));
+                "This is how many times the clock switches per second."));
     }
 
     private static void addItem(GlossaryItem item) {
