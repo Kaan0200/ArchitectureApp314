@@ -1,5 +1,6 @@
 package com.example.kaan.architecture314app;
 
+import android.content.ContentValues;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
@@ -53,7 +54,25 @@ public class ProcessorDefinitionListActivity extends FragmentActivity
                     .setActivateOnItemClick(true);
         }
 
+        //----------------------------------------------------------------
+        //-------SQL DATA ENTRIES-----------------------------------------
+        //----------------------------------------------------------------
+        addProcessor("Pentium Pro", "Intel",null, 32, 60.0);
+        addProcessor("Itanium", "Intel", null, 64, 733.0);
+        //----------------------------------------------------------------
+
         // TODO: If exposing deep links into your app, handle intents here.
+    }
+
+    private void addProcessor(String name, String company, String instructionSet,
+                              int bitsize, double speed ) {
+        ContentValues values = new ContentValues();
+        values.put(DatabaseHelper.COL_NAME, name); // cannot be null
+
+        if (company != null) {
+            values.put(DatabaseHelper.COL_COMPANY, company);
+        }
+        // do the rest of the inputs
     }
 
     @Override
