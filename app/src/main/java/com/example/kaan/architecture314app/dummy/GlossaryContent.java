@@ -27,6 +27,8 @@ public class GlossaryContent {
                 "Clocks Per Instruction, the number of clocks needed to execute an instruction."));
         addItem(new GlossaryItem("Clock Speed",
                 "This is how many times the clock switches per second."));
+        addItem(new GlossaryItem("ISA",
+                "Instruction Set Architecture, this is the part of a computer architecture dealing with instructions and other machine level code."));
     }
 
     private static void addItem(GlossaryItem item) {

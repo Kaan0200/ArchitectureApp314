@@ -59,3 +59,16 @@ This is the seach page that will contain several change-able items so that you c
 - Add more processor entries
 - create query functionality and display the returned
 
+## Header for Processors Table ##
+* name              (text)    NOT NULL
+* company           (text)    NOT NULL
+* year              (integer) NOT NULL
+* instructionSet    (text)
+* bitsize           (integer) NOT NULL
+* microarchitecture (text)
+* speed             (real)    NOT NULL  [This is in MHz]
+* extraInformation  (blob)
+
+## Header for Glossary Object ##
+* String word
+* String definition
