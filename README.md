@@ -66,8 +66,7 @@ This is the seach page that will contain several change-able items so that you c
 * instructionSet    (text)
 * bitsize           (integer) NOT NULL
 * microarchitecture (text)
-* lowspeed          (real)    NOT NULL  [This is in MHz]
-* highspeed         (real)    NOT NULL  [This is in MHz]
+* speed             (real)    NOT NULL  [This is in MHz]
 * extraInformation  (blob)
 
 ## Header for Glossary Object ##
