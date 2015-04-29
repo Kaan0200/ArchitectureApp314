@@ -58,29 +58,47 @@ public class ProcessorDefinitionListActivity extends FragmentActivity
         //-------SQL DATA ENTRIES-----------------------------------------
         //----------------------------------------------------------------
 
-        addProcessor("4004", "Intel", "4bit BCC", 4, 0.0);
-        addProcessor("4040", "Intel", "4bit BCD", 4, 0.0);
+        addProcessor("4004", "Intel", 1971, "4bit BCC", 4, null, null, null);
+        addProcessor("4040", "Intel", 1974, "4bit BCD", 4, null, null, null);
+        addProcessor("8080", "Intel", 1974, "8080", 8, null, 2.0, "This was Intel's second 8 bit processor and popularly labeled as 'The First truly usable microprocessor'.");
+        addProcessor("8086", "Intel", 1979, "x86-16", 16, null, 5.0, "This processor gave rise to the extremely successful x86 line of Intel processors.");
             //--
-        addProcessor("8008", "Intel", "8080", 8, 0.0);
-        addProcessor("8080", "Intel", "8080", 8, 0.0);
+        //addProcessor("Pentium Pro", "Intel", "x86", 32, 60.0);
+        //addProcessor("Itanium", "Intel", "Itanium", 64, 733.0);
             //--
-        addProcessor("8086", "Intel", "x86-16", 16, 0.0);
-        addProcessor("Pentium Pro", "Intel", "x86", 32, 60.0);
-        addProcessor("Itanium", "Intel", "Itanium", 64, 733.0);
+        addProcessor("Am29000", "AMD", 1987, "RISC Design", 32, null, null, null);
+        addProcessor("K6", "AMD", 1997, "MMX", 32, "x86", 166.0, null);
         //----------------------------------------------------------------
 
         // TODO: If exposing deep links into your app, handle intents here.
     }
 
-    private void addProcessor(String name, String company, String instructionSet,
-                              int bitsize, double speed ) {
+    private void addProcessor(String name,
+                              String company,
+                              int year,
+                              String instructionSet, //nullable
+                              int bitsize,
+                              String microarchitecture, //nullable
+                              Double speed, //nullable
+                              String other //nullable
+    ) {
         ContentValues values = new ContentValues();
-        values.put(DatabaseHelper.COL_NAME, name); // cannot be null
-
-        if (company != null) {
-            values.put(DatabaseHelper.COL_COMPANY, company);
+        values.put(DatabaseHelper.COL_NAME, name);
+        values.put(DatabaseHelper.COL_COMPANY, company);
+        values.put(DatabaseHelper.COL_YEAR, year);
+        if (instructionSet != null) { // don't put in nulls
+            values.put(DatabaseHelper.COL_INSTRUCTIONSET, instructionSet);
         }
-        // do the rest of the inputs
+        values.put(DatabaseHelper.COL_BITSIZE, bitsize);
+        if (microarchitecture != null){ // dont put in nulls
+            values.put(DatabaseHelper.COL_MICROARCH, microarchitecture);
+        }
+        if (speed != null) {
+            values.put(DatabaseHelper.COL_SPEED, speed);
+        }
+        if (other != null) {
+            values.put(DatabaseHelper.COL_OTHER, other);
+        }
     }
 
     @Override

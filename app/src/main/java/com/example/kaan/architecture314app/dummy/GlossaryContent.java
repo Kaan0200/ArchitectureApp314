@@ -44,5 +44,9 @@ public class GlossaryContent {
                 "This is how many times the clock switches per second."));
         addItem(new GlossaryItem("ISA",
                 "Instruction Set Architecture, this is the part of a computer architecture dealing with instructions and other machine level code."));
+        addItem(new GlossaryItem("MMX",
+                "This is a SIMD instruction set developed by Intel.  Produced in 1997, it is a processor supplementary capability that better for graphic powering due to it's faster matrix math abilities."));
+        addItem(new GlossaryItem("SIMD",
+                "Single Instruction, Multiple Data, this describes the ability of processors that perform the same operation on multiple data points simultaneously."));
     }
 }
