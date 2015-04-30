@@ -69,6 +69,14 @@ public class ProcessorDefinitionListActivity extends FragmentActivity
         addProcessor("Am29000", "AMD", 1987, "RISC Design", 32, null, 25.0, "These were the most popular RISC chips on the market for a period of time, and were used in machines like laser printers.");
         addProcessor("Am5x86", "AMD", 1995, "IA-32", 32, "x86", 133.0, "This was popular for ordinary, entry-level PC systems.");
         addProcessor("K6", "AMD", 1997, "MMX", 32, "x86", 166.0, "This became a sizable competitior to Intel's Pentium II.");
+
+        addProcessor("Snapdragon S1 MSM7225", "Qualcomm", 2007, "ARMv6", 32, "ARM11", 528.0, null);
+        addProcessor("Snapdragon 200 8225Q", "Qualcomm", 2013, "ARMv7", 32, "ARM Cortex-A5", 1400.0, null);
+        addProcessor("Snapdragon 610 8936", "Qualcomm", 2014, "ARMv8", 64, "ARM Cortex-A53", 1700.0, null);
+
+        addProcessor("Cortex-R4", "ARM", 2011, "ARMv7", 32, "ARM Cortex-R4", 265.0, null);
+        addProcessor("Cortex-M7", "ARM", 2014, "ARMv7-M", 32, "ARM Cortex-M7", 400.0, null);
+        addProcessor("Cortex-A72", "ARM", 2015, "ARMv8-A", 64, "ARM Cortex-A72", 2500.0, null);
         //----------------------------------------------------------------
 
         // TODO: If exposing deep links into your app, handle intents here.
