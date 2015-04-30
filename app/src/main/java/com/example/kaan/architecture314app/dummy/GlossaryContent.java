@@ -32,6 +32,9 @@ public class GlossaryContent {
 
     static {
         // Add Items to glossary here
+        addItem(new GlossaryItem("AIM Alliance",
+                "Standing for Apple-IBM-Motorola, the AIM Alliance was created with the goal of creating a new computing standard based on the PowerPC architecture. They were trying to beat the current "+
+                "dominant Wintel computing platform and show that RISC microprocessor design was better then CISC."));
         addItem(new GlossaryItem("AMD",
                 "Advanced Micro Devices is an American Semiconductor company founded in 1969."));
         addItem(new GlossaryItem("BCD",
