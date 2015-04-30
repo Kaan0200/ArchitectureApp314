@@ -57,7 +57,7 @@ public class ProcessorDefinitionListActivity extends FragmentActivity
         //----------------------------------------------------------------
         //-------SQL DATA ENTRIES-----------------------------------------
         //----------------------------------------------------------------
-
+        //intel
         addProcessor("4004", "Intel", 1971, "4bit BCD", 4, null, 0.74, "This was the first microprocessor, and first general purpose programmable microprocessor, on market.");
         addProcessor("4040", "Intel", 1974, "4bit BCD", 4, null, 0.5, "This microprocessor was the Intel 4004's successor, with new features and extensions available.");
         addProcessor("8080", "Intel", 1974, "8080", 8, null, 2.0, "This was Intel's second 8 bit processor and popularly labeled as 'The First truly usable microprocessor'.");
@@ -67,17 +67,20 @@ public class ProcessorDefinitionListActivity extends FragmentActivity
         //addProcessor("Itanium", "Intel", "Itanium", 64, 733.0);
             //--
         addProcessor("Am29000", "AMD", 1987, "RISC Design", 32, null, 25.0, "These were the most popular RISC chips on the market for a period of time, and were used in machines like laser printers.");
-        addProcessor("Am5x86", "AMD", 1995, "IA-32", 32, "x86", 133.0, "This was popular for ordinary, entry-level PC systems.");
-        addProcessor("K6", "AMD", 1997, "MMX", 32, "x86", 166.0, "This became a sizable competitior to Intel's Pentium II.");
-
-        addProcessor("Snapdragon S1 MSM7225", "Qualcomm", 2007, "ARMv6", 32, "ARM11", 528.0, null);
-        addProcessor("Snapdragon 200 8225Q", "Qualcomm", 2013, "ARMv7", 32, "ARM Cortex-A5", 1400.0, null);
-        addProcessor("Snapdragon 610 8936", "Qualcomm", 2014, "ARMv8", 64, "ARM Cortex-A53", 1700.0, null);
-
-        addProcessor("Cortex-R4", "ARM", 2011, "ARMv7", 32, "ARM Cortex-R4", 265.0, null);
-        addProcessor("Cortex-M7", "ARM", 2014, "ARMv7-M", 32, "ARM Cortex-M7", 400.0, null);
-        addProcessor("Cortex-A72", "ARM", 2015, "ARMv8-A", 64, "ARM Cortex-A72", 2500.0, null);
-
+        addProcessor("Am5x86", "AMD", 1995, "x86", 32, "IA-32", 133.0, "This was popular for ordinary, entry-level PC systems.");
+        addProcessor("K6", "AMD", 1997, "x86", 32, "MMX", 166.0, "This became a sizable competitior to Intel's Pentium II.");
+        //Qualcomm
+        addProcessor("Snapdragon S1 MSM7225", "Qualcomm", 2007, "ARMv6", 32, "ARM11", 528.0, "This processor is designed for use in smaller computers and devices.");
+        addProcessor("Snapdragon 200 8225Q", "Qualcomm", 2013, "ARMv7", 32, "ARM Cortex-A5", 1400.0, "This is the 'Play' version of a modernized Snapdragon processor.");
+        addProcessor("Snapdragon 610 8936", "Qualcomm", 2014, "ARMv8", 64, "ARM Cortex-A53", 1700.0, "This is the 'Pro' version of a modernized Snapdragon processor.");
+        //ARM
+        addProcessor("Cortex-R4", "ARM", 2011, "ARMv7", 32, "ARM Cortex-R4", 265.0, "This is a small deeply embedded real-time processor.");
+        addProcessor("Cortex-M7", "ARM", 2014, "ARMv7-M", 32, "ARM Cortex-M7", 400.0, "This is designed for a balance of energy efficiency and high performance.");
+        addProcessor("Cortex-A72", "ARM", 2015, "ARMv8-A", 64, "ARM Cortex-A72", 2500.0, "This is a fast, high-performing modern processor.");
+        //VIA
+        addProcessor("C3", "VIA", 2002, "x86", 32, "MMX", 800.0, "This featured an advanced core that minimized power consumption.");
+        addProcessor("Eden", "VIA", 2006, "x86", 32, "MMX", 400.0, "This processor is designed for lower power consumption and package size.");
+        addProcessor("C7", "VIA", 2007, "x86", 32, "MMX", 1500.0, "This processor is designed for desktops / laptops.");
         //IBM
         addProcessor("POWER1", "IBM", 1990, "POWER", 32, null, 25.0, "This microprocessor was IBM's first in the POWER line and was their high performance solution for their line of servers and supercomputers.");
         addProcessor("POWER2", "IBM", 1993, "POWER", 32, null, 55.0, "This microprocessor was the fastest at the time, surpassed by the Alpha21064A in 1993.");
