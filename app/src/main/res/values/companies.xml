@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="companies_array">
+        <item>Intel</item>
+        <item>AMD</item>
+        <item>Qualcomm</item>
+        <item>ARM</item>
+        <item>VIA</item>
+        <item>Nvidia</item>
+        <item>IBM</item>
+    </string-array>
+</resources>

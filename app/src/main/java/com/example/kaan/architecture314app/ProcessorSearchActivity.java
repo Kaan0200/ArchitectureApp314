@@ -5,23 +5,28 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Spinner;
 
 import com.example.kaan.architecture314app.R;
 
 public class ProcessorSearchActivity extends ActionBarActivity {
 
-    public ListView makerCompanyListView;
-    // the values inside the list view
+    public Spinner companySpinner;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_processor_search);
-        // get sliders and hold onto them
-        makerCompanyListView = (ListView)findViewById(R.id.companyList);
-        // populate listView with companies
+
+        // get and populate the company spinner
+        companySpinner = (Spinner)findViewById(R.id.companySpinner);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.companies_array, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        companySpinner.setAdapter(adapter);
 
     }
 

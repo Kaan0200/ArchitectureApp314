@@ -44,9 +44,15 @@ public class GlossaryContent {
                 "This is how many times the clock switches per second."));
         addItem(new GlossaryItem("ISA",
                 "Instruction Set Architecture, this is the part of a computer architecture dealing with instructions and other machine level code."));
+        addItem(new GlossaryItem("Intel Corperation",
+                "This is an American multinational corporation who produce a large array of computer related devices. They design leading edge computer chips and through their widely popular Pentium processors "+
+                "they have become a household name."));
         addItem(new GlossaryItem("MMX",
                 "This is a SIMD instruction set developed by Intel.  Produced in 1997, it is a processor supplementary capability that better for graphic powering due to it's faster matrix math abilities."));
         addItem(new GlossaryItem("SIMD",
                 "Single Instruction, Multiple Data, this describes the ability of processors that perform the same operation on multiple data points simultaneously."));
+        addItem(new GlossaryItem("VIA Technologies",
+                "This is a Taiwanese processor manufacturer.  They are the world's largest independent manufacturer of motherboard chipsets.  They produce intergrated chipsets for motherboards, audio controllers"+
+                " network controllers, low power CPUs, and even CD/DVD writers."));
     }
 }
