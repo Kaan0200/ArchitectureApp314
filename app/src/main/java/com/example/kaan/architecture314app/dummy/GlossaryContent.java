@@ -52,6 +52,8 @@ public class GlossaryContent {
                 "they have become a household name."));
         addItem(new GlossaryItem("MMX",
                 "This is a SIMD instruction set developed by Intel.  Produced in 1997, it is a processor supplementary capability that better for graphic powering due to it's faster matrix math abilities."));
+        addItem(new GlossaryItem("Qualcomm",
+                "Qualcomm Inc. is an American semiconductor company founded in 1985"));
         addItem(new GlossaryItem("SIMD",
                 "Single Instruction, Multiple Data, this describes the ability of processors that perform the same operation on multiple data points simultaneously."));
         addItem(new GlossaryItem("VIA Technologies",

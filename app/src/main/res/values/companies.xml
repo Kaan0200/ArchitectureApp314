@@ -6,7 +6,6 @@
         <item>Qualcomm</item>
         <item>ARM</item>
         <item>VIA</item>
-        <item>Nvidia</item>
         <item>IBM</item>
     </string-array>
 </resources>

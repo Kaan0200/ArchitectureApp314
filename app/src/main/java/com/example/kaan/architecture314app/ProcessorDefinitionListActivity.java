@@ -77,6 +77,7 @@ public class ProcessorDefinitionListActivity extends FragmentActivity
         addProcessor("Cortex-R4", "ARM", 2011, "ARMv7", 32, "ARM Cortex-R4", 265.0, "This is a small deeply embedded real-time processor.");
         addProcessor("Cortex-M7", "ARM", 2014, "ARMv7-M", 32, "ARM Cortex-M7", 400.0, "This is designed for a balance of energy efficiency and high performance.");
         addProcessor("Cortex-A72", "ARM", 2015, "ARMv8-A", 64, "ARM Cortex-A72", 2500.0, "This is a fast, high-performing modern processor.");
+        addProcessor("SC000", "ARM", 2010, "Thumb", 32, "T32", 28.0, "This processor was designed for high security systems and is based of the Cortex-M0 processor.");
         //VIA
         addProcessor("C3", "VIA", 2002, "x86", 32, "MMX", 800.0, "This featured an advanced core that minimized power consumption.");
         addProcessor("Eden", "VIA", 2006, "x86", 32, "MMX", 400.0, "This processor is designed for lower power consumption and package size.");
