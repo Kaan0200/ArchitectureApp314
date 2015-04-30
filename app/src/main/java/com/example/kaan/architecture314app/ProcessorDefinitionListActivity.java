@@ -58,16 +58,16 @@ public class ProcessorDefinitionListActivity extends FragmentActivity
         //-------SQL DATA ENTRIES-----------------------------------------
         //----------------------------------------------------------------
 
-        addProcessor("4004", "Intel", 1971, "4bit BCC", 4, null, null, null);
-        addProcessor("4040", "Intel", 1974, "4bit BCD", 4, null, null, null);
+        addProcessor("4004", "Intel", 1971, "4bit BCD", 4, null, 0.74, "This was the first microprocessor, and first general purpose programmable microprocessor, on market.");
+        addProcessor("4040", "Intel", 1974, "4bit BCD", 4, null, 0.5, "This microprocessor was the Intel 4004's successor, with new features and extensions available.");
         addProcessor("8080", "Intel", 1974, "8080", 8, null, 2.0, "This was Intel's second 8 bit processor and popularly labeled as 'The First truly usable microprocessor'.");
         addProcessor("8086", "Intel", 1979, "x86-16", 16, null, 5.0, "This processor gave rise to the extremely successful x86 line of Intel processors.");
             //--
         //addProcessor("Pentium Pro", "Intel", "x86", 32, 60.0);
         //addProcessor("Itanium", "Intel", "Itanium", 64, 733.0);
             //--
-        addProcessor("Am29000", "AMD", 1987, "RISC Design", 32, null, null, null);
-        addProcessor("K6", "AMD", 1997, "MMX", 32, "x86", 166.0, null);
+        addProcessor("Am29000", "AMD", 1987, "RISC Design", 32, null, 25.0, "These were the most popular RISC chips on the market for a period of time, and were used in machines like laser printers.");
+        addProcessor("K6", "AMD", 1997, "MMX", 32, "x86", 166.0, "This became a sizable competitior to Intel's Pentium II.");
         //----------------------------------------------------------------
 
         // TODO: If exposing deep links into your app, handle intents here.
