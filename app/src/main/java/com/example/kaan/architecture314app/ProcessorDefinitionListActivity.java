@@ -77,6 +77,16 @@ public class ProcessorDefinitionListActivity extends FragmentActivity
         addProcessor("Cortex-R4", "ARM", 2011, "ARMv7", 32, "ARM Cortex-R4", 265.0, null);
         addProcessor("Cortex-M7", "ARM", 2014, "ARMv7-M", 32, "ARM Cortex-M7", 400.0, null);
         addProcessor("Cortex-A72", "ARM", 2015, "ARMv8-A", 64, "ARM Cortex-A72", 2500.0, null);
+
+        //IBM
+        addProcessor("POWER1", "IBM", 1990, "POWER", 32, null, 25.0, "This microprocessor was IBM's first in the POWER line and was their high performance solution for their line of servers and supercomputers.");
+        addProcessor("POWER2", "IBM", 1993, "POWER", 32, null, 55.0, "This microprocessor was the fastest at the time, surpassed by the Alpha21064A in 1993.");
+        addProcessor("POWER3", "IBM", 1998, "PowerPC", 64, null, 200.0, "This microprocessor was first to move to the PowerPC instruction set which was the same as POWER but much more optimized.");
+        addProcessor("POWER4", "IBM", 2001, "PowerPC", 64, null, 1100.0, "This microprocessor was a dual core and was the first non-embedded microprocessor to have two cores on a single die.");
+        addProcessor("POWER5", "IBM", 2004, "PowerPC", 64, null, 1900.0, "This microprocessor was an improvement to the POWER4 by adding 2 threads a core and on-die memory controlling over the previous version");
+        addProcessor("POWER6", "IBM", 2007, "PowerPC", 64, null, 3600.0, "This microprocessor improved on previous generations by executing instructions in-order instead of out-of-order, while still managing to be faster");
+        addProcessor("POWER7", "IBM", 2010, "PowerPC", 64, null, 2400.0, "This microprocessor was funded by DARPA, who collaberated with IBM to enable POWER7 to have clusters perform as single systems.");
+        addProcessor("POWER8", "IBM", 2014, "PowerPC", 64, null, 3500.0, "Based on Power Architecture, POWER8 was designed to be massively multithreading, allowing each of its cores (4,6,8,10, or 12 variants) to be able to handle 8 threads simultaniously.");
         //----------------------------------------------------------------
 
         // TODO: If exposing deep links into your app, handle intents here.
