@@ -67,6 +67,7 @@ public class ProcessorDefinitionListActivity extends FragmentActivity
         //addProcessor("Itanium", "Intel", "Itanium", 64, 733.0);
             //--
         addProcessor("Am29000", "AMD", 1987, "RISC Design", 32, null, 25.0, "These were the most popular RISC chips on the market for a period of time, and were used in machines like laser printers.");
+        addProcessor("Am5x86", "AMD", 1995, "IA-32", 32, "x86", 133.0, "This was popular for ordinary, entry-level PC systems.");
         addProcessor("K6", "AMD", 1997, "MMX", 32, "x86", 166.0, "This became a sizable competitior to Intel's Pentium II.");
         //----------------------------------------------------------------
 
