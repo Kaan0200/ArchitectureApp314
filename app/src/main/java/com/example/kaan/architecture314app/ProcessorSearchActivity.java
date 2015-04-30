@@ -8,6 +8,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.SeekBar;
 import android.widget.Spinner;
 
 import com.example.kaan.architecture314app.R;
@@ -15,6 +16,11 @@ import com.example.kaan.architecture314app.R;
 public class ProcessorSearchActivity extends ActionBarActivity {
 
     public Spinner companySpinner;
+    public SeekBar bitSizeSeekBar;
+    public SeekBar yearStartSeekBar;
+    public SeekBar yearEndSeekBar;
+    public SeekBar speedMinSeekbar;
+    public SeekBar speedMaxSeekbar;
 
 
     @Override
@@ -29,6 +35,35 @@ public class ProcessorSearchActivity extends ActionBarActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         companySpinner.setAdapter(adapter);
 
+        // get and setup the seekbars
+        SeekBar.OnSeekBarChangeListener seekbarlistener = new SeekBar.OnSeekBarChangeListener() {
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                seekBar.setProgress(progress);
+            }
+
+            public void onStartTrackingTouch(SeekBar seekBar) {
+                ;
+            }
+
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                ;
+            }
+        };
+
+        bitSizeSeekBar = (SeekBar)findViewById(R.id.bitsizeSeekbar);
+        bitSizeSeekBar.setOnSeekBarChangeListener(seekbarlistener);
+
+        yearStartSeekBar = (SeekBar)findViewById(R.id.yearStartSeekbar);
+        yearStartSeekBar.setOnSeekBarChangeListener(seekbarlistener);
+
+        yearEndSeekBar = (SeekBar)findViewById(R.id.yearEndSeekbar);
+        yearEndSeekBar.setOnSeekBarChangeListener(seekbarlistener);
+
+        speedMinSeekbar = (SeekBar)findViewById(R.id.speedMinSeekbar);
+        speedMinSeekbar.setOnSeekBarChangeListener(seekbarlistener);
+
+        speedMaxSeekbar = (SeekBar)findViewById(R.id.speedMaxSeekbar);
+        speedMaxSeekbar.setOnSeekBarChangeListener(seekbarlistener);
     }
 
 

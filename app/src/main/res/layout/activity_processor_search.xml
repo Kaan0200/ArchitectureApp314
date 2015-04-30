@@ -169,6 +169,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/yearStartSeekbar"
             android:layout_gravity="center_horizontal"
+            android:max="44"
             android:indeterminate="false" />
 
         <SeekBar
@@ -176,6 +177,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/yearEndSeekbar"
             android:layout_gravity="center_horizontal"
+            android:max="44"
             android:indeterminate="false" />
 
         <TextView
@@ -232,15 +234,17 @@
         <SeekBar
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/seekBar"
+            android:id="@+id/speedMinSeekbar"
             android:layout_gravity="center_horizontal"
+            android:max="4000"
             android:indeterminate="false" />
 
         <SeekBar
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/seekBar2"
+            android:id="@+id/speedMaxSeekbar"
             android:layout_gravity="center_horizontal"
+            android:max="4000"
             android:indeterminate="false" />
 
         <Button
