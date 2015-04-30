@@ -15,7 +15,7 @@
         android:layout_centerHorizontal="true"
         android:layout_alignParentTop="true"
         android:weightSum="1"
-        android:id="@+id/">
+        android:id="@+id/Layout">
 
         <TextView
             android:layout_width="wrap_content"
