@@ -42,14 +42,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL("CREATE TABLE " + TABLE_PROCESSORS + " ("
             + COL_ID      + " INTEGER PRIMARY KEY AUTOINCREMENT,"
 
-            + COL_NAME      + " TEXT NOT NULL,"
+            + COL_NAME      + " TEXT NOT NULL ,"
             + COL_COMPANY   + " TEXT NOT NULL,"
             + COL_YEAR      + " INTEGER NOT NULL,"
             + COL_INSTRUCTIONSET + " TEXT,"
             + COL_BITSIZE   + " INTEGER NOT NULL,"
             + COL_MICROARCH + " TEXT,"
             + COL_SPEED     + " INTEGER," //MHz
-            + COL_OTHER     + " BLOB"
+            + COL_OTHER     + " BLOB,"
             + ");" );
 
 
@@ -68,7 +68,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public Cursor fullQuery() {
         Log.i("db", getReadableDatabase().toString());
         String[] projection = {COL_ID, COL_NAME, COL_COMPANY, COL_YEAR, COL_INSTRUCTIONSET, COL_BITSIZE, COL_MICROARCH, COL_SPEED, COL_OTHER };
-        //return getReadableDatabase().query(TABLE_PROCESSORS, projection, null, null, null, null, COL_COMPANY);
-        return this.getReadableDatabase().rawQuery("Select * from "+TABLE_PROCESSORS+";",null );
+        return getReadableDatabase().query(true,TABLE_PROCESSORS, projection, null, null, COL_NAME, null, null, null);
     }
 }

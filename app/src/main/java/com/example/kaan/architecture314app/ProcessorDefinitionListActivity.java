@@ -45,6 +45,7 @@ public class ProcessorDefinitionListActivity extends FragmentActivity
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        ProcessorDictionary.reset();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_processordefinition_list);
         dbHelper = new DatabaseHelper(this);
@@ -128,11 +129,6 @@ public class ProcessorDefinitionListActivity extends FragmentActivity
         }
 
         // TODO: If exposing deep links into your app, handle intents here.
-    }
-    @Override
-    protected void onStop(){
-        super.onStop();
-        ProcessorDictionary.reset();
     }
 
     private void addProcessor(String name,
