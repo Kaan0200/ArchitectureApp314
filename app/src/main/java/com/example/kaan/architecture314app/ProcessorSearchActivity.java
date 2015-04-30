@@ -1,5 +1,6 @@
 package com.example.kaan.architecture314app;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -60,6 +61,7 @@ public class ProcessorSearchActivity extends ActionBarActivity {
      * @param view
      */
     public void searchForProcessors(View view){
-
+        Intent intent = new Intent(ProcessorSearchActivity.this, ProcessorDefinitionListActivity.class);
+        startActivity(intent);
     }
 }

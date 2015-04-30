@@ -19,10 +19,7 @@ public class ProcessorDictionary {
     public static Map<String, ProcessorItem> ITEM_MAP = new HashMap<String, ProcessorItem>();
 
     static {
-        // Add 3 sample items.
-        addItem(new ProcessorItem("Broadwell i3", "Item 1"));
-        addItem(new ProcessorItem("Broadwell i5", "Item 2"));
-        addItem(new ProcessorItem("Broadwell i7", "Item 3"));
+        // empty block that is executed.
     }
 
     private static void addItem(ProcessorItem item) {
@@ -35,16 +32,30 @@ public class ProcessorDictionary {
      */
     public static class ProcessorItem {
         public String name;
-        public String desc;
+        public String company;
+        public String year;
+        public String instructionset;
+        public String bitsize;
+        public String microarch;
+        public String speed;
+        public String other;
 
-        public ProcessorItem(String name, String desc) {
+        public ProcessorItem(String name, String company, String year,
+                             String instructionset, String bitsize,
+                             String microarch, String speed,String other) {
             this.name = name;
-            this.desc = desc;
+            this.company = company;
+            this.year = year;
+            this.instructionset = instructionset;
+            this.bitsize = bitsize;
+            this.microarch = microarch;
+            this.speed = speed;
+            this.other = other;
         }
 
         @Override
         public String toString() {
-            return desc;
+            return company + " - "+ name;
         }
     }
 }
