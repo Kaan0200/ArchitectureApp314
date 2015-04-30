@@ -2,9 +2,11 @@ package com.example.kaan.architecture314app;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.provider.BaseColumns;
+import android.util.Log;
 
 /**
  * Created by Kaan on 4/22/2015.  This is the class that we will use to interact
@@ -49,6 +51,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             + COL_SPEED     + " INTEGER," //MHz
             + COL_OTHER     + " BLOB"
             + ");" );
+
+
     }
 
     @Override
@@ -61,15 +65,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return getWritableDatabase().insert(tableName, null, values);
     }
 
-    public int update(String tableName, long id, ContentValues values) {
-        String selection = COL_ID + " = ?";
-        String[] selectionArgs = {String.valueOf(id)};
-        return getWritableDatabase().update(tableName, values, selection, selectionArgs);
-    }
-
-    public int delete(String tableName, long id) {
-        String selection = COL_ID + " = ?";
-        String[] selectionArgs = {String.valueOf(id)};
-        return getWritableDatabase().delete(tableName, selection, selectionArgs);
+    public Cursor fullQuery() {
+        Log.i("db", getReadableDatabase().toString());
+        String[] projection = {COL_ID, COL_NAME, COL_COMPANY, COL_YEAR, COL_INSTRUCTIONSET, COL_BITSIZE, COL_MICROARCH, COL_SPEED, COL_OTHER };
+        //return getReadableDatabase().query(TABLE_PROCESSORS, projection, null, null, null, null, COL_COMPANY);
+        return this.getReadableDatabase().rawQuery("Select * from "+TABLE_PROCESSORS+";",null );
     }
 }

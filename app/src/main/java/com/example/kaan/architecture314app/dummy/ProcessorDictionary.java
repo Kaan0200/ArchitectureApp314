@@ -22,7 +22,12 @@ public class ProcessorDictionary {
         // empty block that is executed.
     }
 
-    private static void addItem(ProcessorItem item) {
+    public static void reset(){
+        ITEMS = new ArrayList<ProcessorItem>();
+        ITEM_MAP = new HashMap<String, ProcessorItem>();
+    }
+
+    public static void addItem(ProcessorItem item) {
         ITEMS.add(item);
         ITEM_MAP.put(item.name, item);
     }

@@ -19,9 +19,9 @@ public class ProcessorSearchActivity extends ActionBarActivity {
     public SeekBar bitSizeSeekBar;
     public SeekBar yearStartSeekBar;
     public SeekBar yearEndSeekBar;
-    public SeekBar speedMinSeekbar;
-    public SeekBar speedMaxSeekbar;
-
+    public SeekBar speedMinSeekBar;
+    public SeekBar speedMaxSeekBar;
+    public int[] bitSizes = {4, 8, 16, 32, 64};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,11 +59,11 @@ public class ProcessorSearchActivity extends ActionBarActivity {
         yearEndSeekBar = (SeekBar)findViewById(R.id.yearEndSeekbar);
         yearEndSeekBar.setOnSeekBarChangeListener(seekbarlistener);
 
-        speedMinSeekbar = (SeekBar)findViewById(R.id.speedMinSeekbar);
-        speedMinSeekbar.setOnSeekBarChangeListener(seekbarlistener);
+        speedMinSeekBar = (SeekBar)findViewById(R.id.speedMinSeekbar);
+        speedMinSeekBar.setOnSeekBarChangeListener(seekbarlistener);
 
-        speedMaxSeekbar = (SeekBar)findViewById(R.id.speedMaxSeekbar);
-        speedMaxSeekbar.setOnSeekBarChangeListener(seekbarlistener);
+        speedMaxSeekBar = (SeekBar)findViewById(R.id.speedMaxSeekbar);
+        speedMaxSeekBar.setOnSeekBarChangeListener(seekbarlistener);
     }
 
 
@@ -96,6 +96,9 @@ public class ProcessorSearchActivity extends ActionBarActivity {
      * @param view
      */
     public void searchForProcessors(View view){
+        //query
+        // select * from processors where
+
         Intent intent = new Intent(ProcessorSearchActivity.this, ProcessorDefinitionListActivity.class);
         startActivity(intent);
     }

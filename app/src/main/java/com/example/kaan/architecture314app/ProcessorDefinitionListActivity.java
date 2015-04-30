@@ -1,11 +1,21 @@
 package com.example.kaan.architecture314app;
 
+import android.app.ListFragment;
 import android.content.ContentValues;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.NavUtils;
+import android.util.Log;
 import android.view.MenuItem;
+import android.widget.ListView;
+import android.widget.SimpleCursorAdapter;
+
+import com.example.kaan.architecture314app.dummy.ProcessorDictionary;
 
 
 /**
@@ -28,44 +38,29 @@ public class ProcessorDefinitionListActivity extends FragmentActivity
         implements ProcessorDefinitionListFragment.Callbacks {
 
     /**
-     * Whether or not the activity is in two-pane mode, i.e. running on a tablet
-     * device.
+     * Whether or not the activity is in two-pane mode, i.e. running on a tablet device.
      */
     private boolean mTwoPane;
+    private DatabaseHelper dbHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_processordefinition_list);
-        // Show the Up button in the action bar.
-        //-------------------------getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        dbHelper = new DatabaseHelper(this);
 
-        if (findViewById(R.id.processordefinition_detail_container) != null) {
-            // The detail container view will be present only in the
-            // large-screen layouts (res/values-large and
-            // res/values-sw600dp). If this view is present, then the
-            // activity should be in two-pane mode.
-            mTwoPane = true;
-
-            // In two-pane mode, list items should be given the
-            // 'activated' state when touched.
-            ((ProcessorDefinitionListFragment) getSupportFragmentManager()
-                    .findFragmentById(R.id.processordefinition_list))
-                    .setActivateOnItemClick(true);
-        }
-
-        //----------------------------------------------------------------
-        //-------SQL DATA ENTRIES-----------------------------------------
-        //----------------------------------------------------------------
+        //--------------------------------------------------------
+        // SQL ENTRIES
+        //--------------------------------------------------------
         //intel
         addProcessor("4004", "Intel", 1971, "4bit BCD", 4, null, 0.74, "This was the first microprocessor, and first general purpose programmable microprocessor, on market.");
         addProcessor("4040", "Intel", 1974, "4bit BCD", 4, null, 0.5, "This microprocessor was the Intel 4004's successor, with new features and extensions available.");
         addProcessor("8080", "Intel", 1974, "8080", 8, null, 2.0, "This was Intel's second 8 bit processor and popularly labeled as 'The First truly usable microprocessor'.");
         addProcessor("8086", "Intel", 1979, "x86-16", 16, null, 5.0, "This processor gave rise to the extremely successful x86 line of Intel processors.");
-            //--
+        //--
         //addProcessor("Pentium Pro", "Intel", "x86", 32, 60.0);
         //addProcessor("Itanium", "Intel", "Itanium", 64, 733.0);
-            //--
+        //--
         addProcessor("Am29000", "AMD", 1987, "RISC Design", 32, null, 25.0, "These were the most popular RISC chips on the market for a period of time, and were used in machines like laser printers.");
         addProcessor("Am5x86", "AMD", 1995, "x86", 32, "IA-32", 133.0, "This was popular for ordinary, entry-level PC systems.");
         addProcessor("K6", "AMD", 1997, "x86", 32, "MMX", 166.0, "This became a sizable competitior to Intel's Pentium II.");
@@ -93,7 +88,51 @@ public class ProcessorDefinitionListActivity extends FragmentActivity
         addProcessor("POWER8", "IBM", 2014, "PowerPC", 64, null, 3500.0, "Based on Power Architecture, POWER8 was designed to be massively multithreading, allowing each of its cores (4,6,8,10, or 12 variants) to be able to handle 8 threads simultaniously.");
         //----------------------------------------------------------------
 
+
+
+        // do the query on the table
+        Cursor c = dbHelper.fullQuery();
+        Log.i("dev", "here");
+        if (c != null) {
+            c.moveToFirst();
+            Log.i("dev", "there");
+            while (c.moveToNext()) {
+                Log.i("entry", c.getString(c.getColumnIndex("name")));
+                ProcessorDictionary.addItem(new ProcessorDictionary.ProcessorItem(
+                        c.getString(c.getColumnIndex("name")),
+                        c.getString(c.getColumnIndex("company")),
+                        c.getString(c.getColumnIndex("year")),
+                        c.getString(c.getColumnIndex("instructionset")),
+                        c.getString(c.getColumnIndex("bitsize")),
+                        c.getString(c.getColumnIndex("microarch")),
+                        c.getString(c.getColumnIndex("speed")),
+                        c.getString(c.getColumnIndex("other"))));
+            }
+        }
+        c.close();
+        // Show the Up button in the action bar.
+        //-------------------------getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        if (findViewById(R.id.processordefinition_detail_container) != null) {
+            // The detail container view will be present only in the
+            // large-screen layouts (res/values-large and
+            // res/values-sw600dp). If this view is present, then the
+            // activity should be in two-pane mode.
+            mTwoPane = true;
+
+            // In two-pane mode, list items should be given the
+            // 'activated' state when touched.
+            ((ProcessorDefinitionListFragment) getSupportFragmentManager()
+                    .findFragmentById(R.id.processordefinition_list))
+                    .setActivateOnItemClick(true);
+        }
+
         // TODO: If exposing deep links into your app, handle intents here.
+    }
+    @Override
+    protected void onStop(){
+        super.onStop();
+        ProcessorDictionary.reset();
     }
 
     private void addProcessor(String name,
@@ -122,6 +161,7 @@ public class ProcessorDefinitionListActivity extends FragmentActivity
         if (other != null) {
             values.put(DatabaseHelper.COL_OTHER, other);
         }
+        dbHelper.insert(DatabaseHelper.TABLE_PROCESSORS, values);
     }
 
     @Override

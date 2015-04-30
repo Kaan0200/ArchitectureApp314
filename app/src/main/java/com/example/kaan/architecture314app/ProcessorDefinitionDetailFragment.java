@@ -53,7 +53,16 @@ public class ProcessorDefinitionDetailFragment extends Fragment {
 
         // Show the dummy content as text in a TextView.
         if (mItem != null) {
-            ((TextView) rootView.findViewById(R.id.processordefinition_detail)).setText(mItem.desc);
+            ((TextView) rootView.findViewById(R.id.processordefinition_detail))
+                    .setText(mItem.company + " " + mItem.name + " (" + mItem.year + ")\n" +
+                            "\n" +
+                             mItem.bitsize + "bit - Instruction Set: " + mItem.instructionset + "\n" +
+                            "\n" +
+                             "Clock Speed: " + mItem.speed + " MHz" + "\n" +
+                            "\n" +
+                             "MicroArchitecture: " + mItem.microarch + "\n" +
+                            "\n" +
+                             mItem.other );
         }
 
         return rootView;
