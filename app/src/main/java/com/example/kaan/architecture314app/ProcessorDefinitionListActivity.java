@@ -1,7 +1,9 @@
 package com.example.kaan.architecture314app;
 
+import android.app.AlertDialog;
 import android.app.ListFragment;
 import android.content.ContentValues;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -61,7 +63,7 @@ public class ProcessorDefinitionListActivity extends FragmentActivity
         addProcessor("8080", "Intel", 1974, "8080", 8, null, 2.0, "This was Intel's second 8 bit processor and popularly labeled as 'The First truly usable microprocessor'.");
         addProcessor("8086", "Intel", 1979, "x86-16", 16, null, 5.0, "This processor gave rise to the extremely successful x86 line of Intel processors.");
         addProcessor("Core i7 (5th Generation)", "Intel", 2013, "AES", 64, "Ivy Bridge", 2000.0, "The fifth generation of i7, the Core i7 has 2 cores each threaded 4 times.  It's desktop model came with Intel's own HD Graphics onboard.");
-        addProcessor("Pentium Pro", "Intel", 1995, "x86", 32,"P6", 150.0, "This was the sixth-generation x86 microprocessors, it came in dual and quad core configurations and was an excellent processor of it's time.");
+        addProcessor("Pentium Pro", "Intel", 1995, "x86", 32, "P6", 150.0, "This was the sixth-generation x86 microprocessors, it came in dual and quad core configurations and was an excellent processor of it's time.");
         //--AMD
         addProcessor("Am29000", "AMD", 1987, "RISC Design", 32, null, 25.0, "These were the most popular RISC chips on the market for a period of time, and were used in machines like laser printers.");
         addProcessor("Am5x86", "AMD", 1995, "x86", 32, "IA-32", 133.0, "This was popular for ordinary, entry-level PC systems.");
@@ -88,7 +90,7 @@ public class ProcessorDefinitionListActivity extends FragmentActivity
         addProcessor("POWER6", "IBM", 2007, "PowerPC", 64, null, 3600.0, "This microprocessor improved on previous generations by executing instructions in-order instead of out-of-order, while still managing to be faster");
         addProcessor("POWER7", "IBM", 2010, "PowerPC", 64, null, 2400.0, "This microprocessor was funded by DARPA, who collaborated with IBM to enable POWER7 to have clusters perform as single systems.");
         addProcessor("POWER8", "IBM", 2014, "PowerPC", 64, null, 3500.0, "Based on Power Architecture, POWER8 was designed to be massively multithreading, allowing each of its cores (4,6,8,10, or 12 variants) to be able to handle 8 threads simultaniously.");
-        addProcessor("Xenon",  "IBM", 2007, "PowerPC", 64, "3, 2-threaded Cores", 3200.0, "While Xenon is the XCPU's code name, this processor was developed by Microsoft and IBM to be used with ATI's Xenos graphics chip inside the XBox360.");
+        addProcessor("Xenon", "IBM", 2007, "PowerPC", 64, "3, 2-threaded Cores", 3200.0, "While Xenon is the XCPU's code name, this processor was developed by Microsoft and IBM to be used with ATI's Xenos graphics chip inside the XBox360.");
         //----------------------------------------------------------------
 
         // do the query on the table depending on the mode
@@ -148,7 +150,7 @@ public class ProcessorDefinitionListActivity extends FragmentActivity
             values.put(DatabaseHelper.COL_INSTRUCTIONSET, instructionSet);
         }
         values.put(DatabaseHelper.COL_BITSIZE, bitsize);
-        if (microarchitecture != null){ // dont put in nulls
+        if (microarchitecture != null) { // dont put in nulls
             values.put(DatabaseHelper.COL_MICROARCH, microarchitecture);
         }
         if (speed != null) {
@@ -201,6 +203,23 @@ public class ProcessorDefinitionListActivity extends FragmentActivity
             Intent detailIntent = new Intent(this, ProcessorDefinitionDetailActivity.class);
             detailIntent.putExtra(ProcessorDefinitionDetailFragment.ARG_ITEM_ID, id);
             startActivity(detailIntent);
+        }
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        if (ProcessorDictionary.ITEMS.size() == 0) {
+            new AlertDialog.Builder(this).setTitle("No Processors")
+                    .setMessage("There are no processors with the" +
+                            " specifications you gave.").setNeutralButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    // do nothing
+                }
+            })
+                    .setIcon(android.R.drawable.ic_dialog_alert)
+                    .show();
         }
     }
 }
