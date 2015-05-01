@@ -42,7 +42,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Glossery"
+        android:text="Glossary"
         android:id="@+id/toGlosseryButton"
         android:onClick="openGlossaryActivity"
         android:layout_below="@+id/processorSearchLabel"
