@@ -2,4 +2,6 @@
     xmlns:tools="http://schemas.android.com/tools" android:id="@+id/glossarydefinition_detail"
     style="?android:attr/textAppearanceLarge" android:layout_width="match_parent"
     android:layout_height="match_parent" android:padding="16dp" android:textIsSelectable="true"
-    tools:context="com.example.kaan.architecture314app.GlossaryDefinitionDetailFragment" />
+    tools:context="com.example.kaan.architecture314app.GlossaryDefinitionDetailFragment"
+    android:background="#ff313131"
+    android:textColor="#ffdf7e0f" />

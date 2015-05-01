@@ -3,4 +3,5 @@
     android:id="@+id/processordefinition_detail_container" android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.kaan.architecture314app.ProcessorDefinitionDetailActivity"
-    tools:ignore="MergeRootFrame" />
+    tools:ignore="MergeRootFrame"
+    android:background="#ff313131" />
