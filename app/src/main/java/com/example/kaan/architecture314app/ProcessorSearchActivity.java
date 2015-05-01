@@ -1,17 +1,18 @@
 package com.example.kaan.architecture314app;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
-import android.widget.ListView;
 import android.widget.SeekBar;
 import android.widget.Spinner;
-
-import com.example.kaan.architecture314app.R;
+import android.widget.TextView;
 
 public class ProcessorSearchActivity extends ActionBarActivity {
 
@@ -21,7 +22,15 @@ public class ProcessorSearchActivity extends ActionBarActivity {
     public SeekBar yearEndSeekBar;
     public SeekBar speedMinSeekBar;
     public SeekBar speedMaxSeekBar;
+
+    public TextView bitSizeSeekBarText;
+    public TextView yearStartText;
+    public TextView yearEndText;
+    public TextView speedMinText;
+    public TextView speedMaxText;
+
     public int[] bitSizes = {4, 8, 16, 32, 64};
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,37 +44,36 @@ public class ProcessorSearchActivity extends ActionBarActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         companySpinner.setAdapter(adapter);
 
-        // get and setup the seekbars
-        SeekBar.OnSeekBarChangeListener seekbarlistener = new SeekBar.OnSeekBarChangeListener() {
-            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                seekBar.setProgress(progress);
-            }
-
-            public void onStartTrackingTouch(SeekBar seekBar) {
-                ;
-            }
-
-            public void onStopTrackingTouch(SeekBar seekBar) {
-                ;
-            }
-        };
-
+        // grab all the seekbars
         bitSizeSeekBar = (SeekBar)findViewById(R.id.bitsizeSeekbar);
-        bitSizeSeekBar.setOnSeekBarChangeListener(seekbarlistener);
-
         yearStartSeekBar = (SeekBar)findViewById(R.id.yearStartSeekbar);
-        yearStartSeekBar.setOnSeekBarChangeListener(seekbarlistener);
-
         yearEndSeekBar = (SeekBar)findViewById(R.id.yearEndSeekbar);
-        yearEndSeekBar.setOnSeekBarChangeListener(seekbarlistener);
-
         speedMinSeekBar = (SeekBar)findViewById(R.id.speedMinSeekbar);
-        speedMinSeekBar.setOnSeekBarChangeListener(seekbarlistener);
-
         speedMaxSeekBar = (SeekBar)findViewById(R.id.speedMaxSeekbar);
-        speedMaxSeekBar.setOnSeekBarChangeListener(seekbarlistener);
-    }
+        // grab the texts that will change
+        bitSizeSeekBarText = (TextView)findViewById(R.id.bitsizeSeekbarLabel);
+        yearStartText = (TextView)findViewById(R.id.yearStartLabel);
+        yearEndText = (TextView)findViewById(R.id.yearEndLabel);
+        speedMinText = (TextView)findViewById(R.id.speedMinLabel);
+        speedMaxText = (TextView)findViewById(R.id.speedMaxLabel);
 
+        //set up the listener for the bitsize seekbar
+        bitSizeSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener(){
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser){
+              bitSizeSeekBarText.setText(bitSizes[progress]);
+            }
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+              //nothing
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+              //nothing
+            }
+        });
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -90,16 +98,42 @@ public class ProcessorSearchActivity extends ActionBarActivity {
     }
 
     /**
-     * This will execute when the button is pressed.  It should both
-     * open the results view as well as tailor the search results
-     * or pass the values to the other view to do the same
-     * @param view
+     * This will execute when the button is pressed.  It should both open the results view
+     * as well as tailor the search results or pass the values to the other view to do the same
      */
     public void searchForProcessors(View view){
-        //query
-        // select * from processors where
+        // the top seekbar in each pair must be lower then the bottom
+        if (!seekBarValuesGood()) {
+            new AlertDialog.Builder(this).setTitle("Bad Seekbar Values")
+                    .setMessage("The top of each pair of seekbars must be a lower value then the " +
+                            "bottom seekbar.").setNeutralButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    // do nothing
+                }
+            })
+                    .setIcon(android.R.drawable.ic_dialog_alert)
+                    .show();
+        }
+        // seekbars are good
+        else {
+            // pass in the "having" part of an SQL statment here.
+            String whereString = "company like " + companySpinner.getSelectedItem().toString();
+            whereString += " and ";
+            whereString += "bitsize = " + bitSizes[bitSizeSeekBar.getProgress()];
+            whereString += " and ";
+            whereString += "year BETWEEN " + (yearStartSeekBar.getProgress()+1971) +" AND "+ (yearEndSeekBar.getProgress()+1971);
+            whereString += " and ";
+            whereString += "speed BETWEEN " + speedMinSeekBar.getProgress() + " AND " + speedMaxSeekBar.getProgress();
+            Log.d("check",whereString);
+            ProcessorDefinitionListActivity.searchBy = whereString;
+            Intent intent = new Intent(ProcessorSearchActivity.this, ProcessorDefinitionListActivity.class);
+            startActivity(intent);
+        }
+    }
 
-        Intent intent = new Intent(ProcessorSearchActivity.this, ProcessorDefinitionListActivity.class);
-        startActivity(intent);
+    private boolean seekBarValuesGood(){
+        return ((yearStartSeekBar.getProgress() < yearEndSeekBar.getProgress())
+                &&(speedMinSeekBar.getProgress() < speedMaxSeekBar.getProgress()));
     }
 }

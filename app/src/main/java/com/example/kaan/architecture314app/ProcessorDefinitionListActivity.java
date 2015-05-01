@@ -42,6 +42,8 @@ public class ProcessorDefinitionListActivity extends FragmentActivity
      */
     private boolean mTwoPane;
     private DatabaseHelper dbHelper;
+    public static String searchBy = "";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,10 +60,9 @@ public class ProcessorDefinitionListActivity extends FragmentActivity
         addProcessor("4040", "Intel", 1974, "4bit BCD", 4, null, 0.5, "This microprocessor was the Intel 4004's successor, with new features and extensions available.");
         addProcessor("8080", "Intel", 1974, "8080", 8, null, 2.0, "This was Intel's second 8 bit processor and popularly labeled as 'The First truly usable microprocessor'.");
         addProcessor("8086", "Intel", 1979, "x86-16", 16, null, 5.0, "This processor gave rise to the extremely successful x86 line of Intel processors.");
-        //--
-        //addProcessor("Pentium Pro", "Intel", "x86", 32, 60.0);
-        //addProcessor("Itanium", "Intel", "Itanium", 64, 733.0);
-        //--
+        addProcessor("Core i7 (5th Generation)", "Intel", 2013, "AES", 64, "Ivy Bridge", 2000.0, "The fifth generation of i7, the Core i7 has 2 cores each threaded 4 times.  It's desktop model came with Intel's own HD Graphics onboard.");
+        addProcessor("Pentium Pro", "Intel", 1995, "x86", 32,"P6", 150.0, "This was the sixth-generation x86 microprocessors, it came in dual and quad core configurations and was an excellent processor of it's time.");
+        //--AMD
         addProcessor("Am29000", "AMD", 1987, "RISC Design", 32, null, 25.0, "These were the most popular RISC chips on the market for a period of time, and were used in machines like laser printers.");
         addProcessor("Am5x86", "AMD", 1995, "x86", 32, "IA-32", 133.0, "This was popular for ordinary, entry-level PC systems.");
         addProcessor("K6", "AMD", 1997, "x86", 32, "MMX", 166.0, "This became a sizable competitior to Intel's Pentium II.");
@@ -85,17 +86,20 @@ public class ProcessorDefinitionListActivity extends FragmentActivity
         addProcessor("POWER4", "IBM", 2001, "PowerPC", 64, null, 1100.0, "This microprocessor was a dual core and was the first non-embedded microprocessor to have two cores on a single die.");
         addProcessor("POWER5", "IBM", 2004, "PowerPC", 64, null, 1900.0, "This microprocessor was an improvement to the POWER4 by adding 2 threads a core and on-die memory controlling over the previous version");
         addProcessor("POWER6", "IBM", 2007, "PowerPC", 64, null, 3600.0, "This microprocessor improved on previous generations by executing instructions in-order instead of out-of-order, while still managing to be faster");
-        addProcessor("POWER7", "IBM", 2010, "PowerPC", 64, null, 2400.0, "This microprocessor was funded by DARPA, who collaberated with IBM to enable POWER7 to have clusters perform as single systems.");
+        addProcessor("POWER7", "IBM", 2010, "PowerPC", 64, null, 2400.0, "This microprocessor was funded by DARPA, who collaborated with IBM to enable POWER7 to have clusters perform as single systems.");
         addProcessor("POWER8", "IBM", 2014, "PowerPC", 64, null, 3500.0, "Based on Power Architecture, POWER8 was designed to be massively multithreading, allowing each of its cores (4,6,8,10, or 12 variants) to be able to handle 8 threads simultaniously.");
+        addProcessor("Xenon",  "IBM", 2007, "PowerPC", 64, "3, 2-threaded Cores", 3200.0, "While Xenon is the XCPU's code name, this processor was developed by Microsoft and IBM to be used with ATI's Xenos graphics chip inside the XBox360.");
         //----------------------------------------------------------------
 
+        // do the query on the table depending on the mode
+        Cursor c = dbHelper.fullQuery(searchBy);
 
-
-        // do the query on the table
-        Cursor c = dbHelper.fullQuery();
         Log.i("dev", "here");
         if (c != null) {
-            c.moveToFirst();
+            // no results
+            if (c.getCount() == 0){
+
+            }
             Log.i("dev", "there");
             while (c.moveToNext()) {
                 Log.i("entry", c.getString(c.getColumnIndex("name")));

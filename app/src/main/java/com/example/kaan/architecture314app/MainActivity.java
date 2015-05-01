@@ -60,6 +60,7 @@ public class MainActivity extends ActionBarActivity {
      * @param v
      */
     public void openProcessorDictionaryActivity(View v){
+        ProcessorDefinitionListActivity.searchBy = ""; //clear it to return everything
         Intent intent = new Intent(MainActivity.this, ProcessorDefinitionListActivity.class);
         startActivity(intent);
     }

@@ -45,6 +45,8 @@ public class GlossaryContent {
                 "Clocks Per Instruction, the number of clocks needed to execute an instruction."));
         addItem(new GlossaryItem("Clock Speed",
                 "This is how many times the clock switches per second."));
+        addItem(new GlossaryItem("IPC",
+                "Instructions Per Clock, this is way of describing processors which can handle more then one instruction per cycle, allowing them to process at even higher rates."));
         addItem(new GlossaryItem("ISA",
                 "Instruction Set Architecture, this is the part of a computer architecture dealing with instructions and other machine level code."));
         addItem(new GlossaryItem("Intel Corperation",
@@ -56,8 +58,10 @@ public class GlossaryContent {
                 "Qualcomm Inc. is an American semiconductor company founded in 1985"));
         addItem(new GlossaryItem("SIMD",
                 "Single Instruction, Multiple Data, this describes the ability of processors that perform the same operation on multiple data points simultaneously."));
+        addItem(new GlossaryItem("Superscalar",
+                "A property of processors that allow decisions on instructions to execute simultaneously to be made during runtime by the hardware."));
         addItem(new GlossaryItem("VIA Technologies",
-                "This is a Taiwanese processor manufacturer.  They are the world's largest independent manufacturer of motherboard chipsets.  They produce intergrated chipsets for motherboards, audio controllers"+
+                "This is a Taiwanese processor manufacturer.  They are the world's largest independent manufacturer of motherboard chipsets.  They produce integrated chipsets for motherboards, audio controllers"+
                 " network controllers, low power CPUs, and even CD/DVD writers."));
     }
 }

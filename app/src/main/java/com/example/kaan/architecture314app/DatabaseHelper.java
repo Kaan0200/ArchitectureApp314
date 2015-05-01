@@ -65,9 +65,22 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return getWritableDatabase().insert(tableName, null, values);
     }
 
-    public Cursor fullQuery() {
-        Log.i("db", getReadableDatabase().toString());
-        String[] projection = {COL_ID, COL_NAME, COL_COMPANY, COL_YEAR, COL_INSTRUCTIONSET, COL_BITSIZE, COL_MICROARCH, COL_SPEED, COL_OTHER };
-        return getReadableDatabase().query(true,TABLE_PROCESSORS, projection, null, null, COL_NAME, null, null, null);
+    public Cursor fullQuery(String searchBy) {
+        String[] projection = {COL_ID, COL_NAME, COL_COMPANY, COL_YEAR, COL_INSTRUCTIONSET, COL_BITSIZE, COL_MICROARCH, COL_SPEED, COL_OTHER};
+        // the query for everything if the dictionary list is attempted to be accessed from the main activity
+        if (searchBy.equals("")) {
+            return getReadableDatabase().query(true, TABLE_PROCESSORS, projection, null, null, COL_NAME, null, null, null);
+        }
+        // the dictionary is attempting to be accessed form the search page so the query needs to trim
+        //the values that dont belong given the query info.
+        else{
+            return getReadableDatabase().query(true, TABLE_PROCESSORS, projection,
+                    "Company like 'J'", /*SELECTION*/
+                    null,
+                    COL_NAME,
+                    null/* having */,
+                    null,
+                    null);
+        }
     }
 }
