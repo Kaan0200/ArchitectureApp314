@@ -75,7 +75,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         //the values that dont belong given the query info.
         else{
             return getReadableDatabase().query(true, TABLE_PROCESSORS, projection,
-                    "Company like 'J'", /*SELECTION*/
+                    searchBy, /*SELECTION*/
                     null,
                     COL_NAME,
                     null/* having */,

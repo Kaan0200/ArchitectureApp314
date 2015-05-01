@@ -96,10 +96,6 @@ public class ProcessorDefinitionListActivity extends FragmentActivity
 
         Log.i("dev", "here");
         if (c != null) {
-            // no results
-            if (c.getCount() == 0){
-
-            }
             Log.i("dev", "there");
             while (c.moveToNext()) {
                 Log.i("entry", c.getString(c.getColumnIndex("name")));

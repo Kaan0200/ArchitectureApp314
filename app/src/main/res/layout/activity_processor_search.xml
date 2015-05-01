@@ -36,12 +36,13 @@
 
             <TextView
                 android:layout_width="173dp"
-                android:layout_height="66dp"
+                android:layout_height="65dp"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="Select the processor design creator"
                 android:id="@+id/companySelectLabel"
-                android:textColor="#ffffffff"
-                android:layout_weight="0.40" />
+                android:textColor="#ffecc302"
+                android:layout_weight="0.40"
+                />
 
             <Spinner
                 android:layout_width="130dp"
@@ -86,7 +87,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/bitsizeSeekbar"
-            android:max="5"
+            android:max="4"
             android:indeterminate="false" />
 
         <TextView
@@ -132,7 +133,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:text="Today"
+                        android:text="2015"
                         android:id="@+id/yearEndLabel"
                         android:gravity="right"
                         android:layout_gravity="right"
@@ -148,7 +149,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/yearStartSeekbar"
             android:layout_gravity="center_horizontal"
-            android:max="44"
+            android:max="43"
             android:indeterminate="false" />
 
         <SeekBar
@@ -156,7 +157,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/yearEndSeekbar"
             android:layout_gravity="center_horizontal"
-            android:max="44"
+            android:max="43"
             android:indeterminate="false" />
 
         <TextView
@@ -183,7 +184,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:text="1971"
+                    android:text="0GHz"
                     android:id="@+id/speedMinLabel"
                     android:layout_marginLeft="12dp"
                     android:textColor="#ff995aba"/>
@@ -202,13 +203,23 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:text="Today"
+                        android:text="4.0GHz"
                         android:id="@+id/speedMaxLabel"
                         android:gravity="right"
                         android:layout_gravity="right"
                         android:layout_alignParentTop="true"
                         android:textColor="#ff995aba"/>
                 </RelativeLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="to"
+                    android:id="@+id/textView"
+                    android:textColor="#ff995aba"
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true" />
             </RelativeLayout>
         </LinearLayout>
 
@@ -217,7 +228,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/speedMinSeekbar"
             android:layout_gravity="center_horizontal"
-            android:max="4000"
+            android:max="39"
             android:indeterminate="false" />
 
         <SeekBar
@@ -225,7 +236,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/speedMaxSeekbar"
             android:layout_gravity="center_horizontal"
-            android:max="4000"
+            android:max="39"
             android:indeterminate="false" />
 
         <Button

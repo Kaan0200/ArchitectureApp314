@@ -61,17 +61,56 @@ public class ProcessorSearchActivity extends ActionBarActivity {
         bitSizeSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener(){
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser){
-              bitSizeSeekBarText.setText(bitSizes[progress]);
+              bitSizeSeekBarText.setText(""+bitSizes[progress]);
             }
             @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-              //nothing
-            }
-
+            public void onStartTrackingTouch(SeekBar seekBar) { ; }
             @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-              //nothing
+            public void onStopTrackingTouch(SeekBar seekBar) { ; }
+        });
+        //set up the listener for the min year seekbar
+        yearStartSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener(){
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser){
+                yearStartText.setText(""+(progress+1971));
             }
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) { ; }
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) { ; }
+        });
+        //set up the listener for the max year seekbar
+        yearEndSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener(){
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser){
+                yearEndText.setText(""+(progress+1971));
+            }
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) { ; }
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) { ; }
+        });
+        //set up the listener for the min speed seekbar
+        speedMinSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener(){
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser){
+                speedMinText.setText(((double)progress)/10 + "GHz");
+            }
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) { ; }
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) { ; }
+        });
+        //set up the listener for the min speed seekbar
+        speedMaxSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener(){
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser){
+                speedMaxText.setText(((double)progress)/10 + "GHz");
+            }
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) { ; }
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) { ; }
         });
     }
 
@@ -118,13 +157,16 @@ public class ProcessorSearchActivity extends ActionBarActivity {
         // seekbars are good
         else {
             // pass in the "having" part of an SQL statment here.
-            String whereString = "company like " + companySpinner.getSelectedItem().toString();
-            whereString += " and ";
+            String whereString = "";
+            if (!companySpinner.getSelectedItem().toString().equals("All")) {
+                whereString = "company like '" + companySpinner.getSelectedItem().toString()+ "'";
+                whereString += " and ";
+            }
             whereString += "bitsize = " + bitSizes[bitSizeSeekBar.getProgress()];
             whereString += " and ";
             whereString += "year BETWEEN " + (yearStartSeekBar.getProgress()+1971) +" AND "+ (yearEndSeekBar.getProgress()+1971);
             whereString += " and ";
-            whereString += "speed BETWEEN " + speedMinSeekBar.getProgress() + " AND " + speedMaxSeekBar.getProgress();
+            whereString += "speed BETWEEN " + speedMinSeekBar.getProgress()*1000 + " AND " + speedMaxSeekBar.getProgress()*1000;
             Log.d("check",whereString);
             ProcessorDefinitionListActivity.searchBy = whereString;
             Intent intent = new Intent(ProcessorSearchActivity.this, ProcessorDefinitionListActivity.class);

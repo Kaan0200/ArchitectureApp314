@@ -7,14 +7,13 @@
     tools:layout="@android:layout/list_content"
     android:background="#ff313131" >
 
-    <TextView android:id="@android:id/empty"
+    <!--<TextView android:id="@android:id/empty"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_centerHorizontal="true"
         android:textColor="#ffff6c64"
         android:textSize="20pt"
         android:text="No results"
-        android:background="#ff313131"/>
+        android:background="#ff313131"/>-->
 
 
     </fragment>
