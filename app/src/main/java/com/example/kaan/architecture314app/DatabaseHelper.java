@@ -49,7 +49,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             + COL_BITSIZE   + " INTEGER NOT NULL,"
             + COL_MICROARCH + " TEXT,"
             + COL_SPEED     + " INTEGER," //MHz
-            + COL_OTHER     + " BLOB,"
+            + COL_OTHER     + " BLOB"
             + ");" );
 
 
